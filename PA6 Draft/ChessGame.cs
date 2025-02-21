@@ -254,21 +254,25 @@ namespace PA6_Draft
                 List<int> remainingSlots = new List<int>();
                 List<Piece> remainingPieces = new List<Piece> { Piece.BKNIGHT, Piece.BKNIGHT, Piece.BQUEEN };
 
+                //fills remaining slots with indices
                 for (int i = 0; i < 8; i++)
                 {
                     remainingSlots.Add(i);
                 }
 
+                //gets an even (white) and odd (black) box for bishops
                 int whiteSlot = rand.Next(0, 4) * 2;
                 int blackSlot = (rand.Next(0, 4) * 2) + 1;
 
                 Board[whiteSlot][0].Occupant = Piece.BBISHOP;
                 Board[blackSlot][0].Occupant = Piece.BBISHOP;
                 
+                //removes used slots
                 remainingSlots.RemoveAt(remainingSlots.IndexOf(whiteSlot));
-                int indexToRemove = remainingSlots.IndexOf(blackSlot);
-                remainingSlots.RemoveAt(indexToRemove);
+                remainingSlots.RemoveAt(remainingSlots.IndexOf(blackSlot));
 
+
+                //fills in knights and queen
                 for (int i = 0; i < remainingPieces.Count; i++)
                 {
                     int index = rand.Next(0, remainingSlots.Count);
@@ -278,13 +282,15 @@ namespace PA6_Draft
                     remainingSlots.RemoveAt(index);
                 }
 
-
+                //king will always be in between the rooks
                 Board[remainingSlots[0]][0].Occupant = Piece.BROOK;
                 Board[remainingSlots[1]][0].Occupant = Piece.BKING;
                 Board[remainingSlots[2]][0].Occupant = Piece.BROOK;
 
+                //sets the white side to match the black side
                 for (int i = 0; i < 8; i++)
                 {
+                    //ENUM allows + 1 to go to the next color, so BROOK + 1 = WROOK
                     Piece piece = Board[i][0].Occupant + 1;
                     Board[i][7].Occupant = piece;
                 }
