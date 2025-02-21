@@ -23,7 +23,6 @@ namespace PA6_Draft
         private Point PickedLocation;
         private Dictionary<Piece,Bitmap> PieceImages;//BlackPawn,WhitePawn,BlackRook,WhiteRook,BlackKnight,WhiteKnight,BlackBishop,WhiteBishop
                                                      //,BlackKing, WhiteKing, BlackQueen, WhiteQueen;
-        
 
         internal Chessboard(Color Light, Color Dark, ChessGame Game)
         {
@@ -280,6 +279,11 @@ namespace PA6_Draft
                 soundPlayer.Load();
                 soundPlayer.Play();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -157,14 +157,14 @@ namespace PA6_Draft
             // lightColorToolStripMenuItem
             // 
             this.lightColorToolStripMenuItem.Name = "lightColorToolStripMenuItem";
-            this.lightColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lightColorToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.lightColorToolStripMenuItem.Text = "Light Color";
             this.lightColorToolStripMenuItem.Click += new System.EventHandler(this.LightColor_Click);
             // 
             // darkColorToolStripMenuItem
             // 
             this.darkColorToolStripMenuItem.Name = "darkColorToolStripMenuItem";
-            this.darkColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.darkColorToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.darkColorToolStripMenuItem.Text = "Dark Color";
             this.darkColorToolStripMenuItem.Click += new System.EventHandler(this.DarkColor_Click);
             // 

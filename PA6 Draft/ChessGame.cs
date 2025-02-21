@@ -193,6 +193,9 @@ namespace PA6_Draft
         internal string Player2Name;
         internal string WhiteTimeLimit;
         internal string BlackTimeLimit;
+
+        private Rules rulesCompleted;
+
         private long Increment { get; set; }
         internal List<Move> Moves;
 
@@ -245,6 +248,7 @@ namespace PA6_Draft
                 Board[4][0].Occupant = Piece.BKING;
                 Board[3][7].Occupant = Piece.WQUEEN;
                 Board[4][7].Occupant = Piece.WKING;
+                rulesCompleted = Rules.STANDARD;
             }
             else if (rules == Rules.NINESIXTY)
             {
@@ -295,11 +299,16 @@ namespace PA6_Draft
                     Board[i][7].Occupant = piece;
                 }
 
+                rulesCompleted = Rules.NINESIXTY;
             }
             Moves = new List<Move>();
             SoundPlayer soundPlayer = new SoundPlayer(@"Resources\startgame.wav");
             soundPlayer.Load();
             soundPlayer.Play();
+        }
+        public Rules GetRulesCompleted()
+        {
+            return rulesCompleted;
         }
 
         private Square[][] BasicPawnSetup(Square[][] board)

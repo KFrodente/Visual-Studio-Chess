@@ -37,6 +37,14 @@
             this.MainTimer = new System.Windows.Forms.Timer(this.components);
             this.Player2 = new System.Windows.Forms.TextBox();
             this.Player1 = new System.Windows.Forms.TextBox();
+            this.Test4PF = new System.Windows.Forms.Label();
+            this.Test3PF = new System.Windows.Forms.Label();
+            this.Test2PF = new System.Windows.Forms.Label();
+            this.Test1PF = new System.Windows.Forms.Label();
+            this.Test4Label = new System.Windows.Forms.Label();
+            this.Test3Label = new System.Windows.Forms.Label();
+            this.Test2Label = new System.Windows.Forms.Label();
+            this.Test1Label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Board)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,11 +131,103 @@
             this.Player1.Size = new System.Drawing.Size(161, 19);
             this.Player1.TabIndex = 11;
             // 
+            // Test4PF
+            // 
+            this.Test4PF.AutoSize = true;
+            this.Test4PF.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Test4PF.Location = new System.Drawing.Point(1005, 415);
+            this.Test4PF.Name = "Test4PF";
+            this.Test4PF.Size = new System.Drawing.Size(23, 25);
+            this.Test4PF.TabIndex = 20;
+            this.Test4PF.Text = "a";
+            this.Test4PF.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Test3PF
+            // 
+            this.Test3PF.AutoSize = true;
+            this.Test3PF.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Test3PF.Location = new System.Drawing.Point(1005, 331);
+            this.Test3PF.Name = "Test3PF";
+            this.Test3PF.Size = new System.Drawing.Size(23, 25);
+            this.Test3PF.TabIndex = 19;
+            this.Test3PF.Text = "a";
+            this.Test3PF.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Test2PF
+            // 
+            this.Test2PF.AutoSize = true;
+            this.Test2PF.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Test2PF.Location = new System.Drawing.Point(1005, 249);
+            this.Test2PF.Name = "Test2PF";
+            this.Test2PF.Size = new System.Drawing.Size(23, 25);
+            this.Test2PF.TabIndex = 18;
+            this.Test2PF.Text = "a";
+            this.Test2PF.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Test1PF
+            // 
+            this.Test1PF.AutoSize = true;
+            this.Test1PF.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Test1PF.Location = new System.Drawing.Point(1005, 166);
+            this.Test1PF.Name = "Test1PF";
+            this.Test1PF.Size = new System.Drawing.Size(23, 25);
+            this.Test1PF.TabIndex = 17;
+            this.Test1PF.Text = "a";
+            this.Test1PF.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Test4Label
+            // 
+            this.Test4Label.AutoSize = true;
+            this.Test4Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Test4Label.Location = new System.Drawing.Point(889, 415);
+            this.Test4Label.Name = "Test4Label";
+            this.Test4Label.Size = new System.Drawing.Size(73, 25);
+            this.Test4Label.TabIndex = 16;
+            this.Test4Label.Text = "Test 4:";
+            // 
+            // Test3Label
+            // 
+            this.Test3Label.AutoSize = true;
+            this.Test3Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Test3Label.Location = new System.Drawing.Point(889, 331);
+            this.Test3Label.Name = "Test3Label";
+            this.Test3Label.Size = new System.Drawing.Size(73, 25);
+            this.Test3Label.TabIndex = 15;
+            this.Test3Label.Text = "Test 3:";
+            // 
+            // Test2Label
+            // 
+            this.Test2Label.AutoSize = true;
+            this.Test2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Test2Label.Location = new System.Drawing.Point(889, 249);
+            this.Test2Label.Name = "Test2Label";
+            this.Test2Label.Size = new System.Drawing.Size(73, 25);
+            this.Test2Label.TabIndex = 14;
+            this.Test2Label.Text = "Test 2:";
+            // 
+            // Test1Label
+            // 
+            this.Test1Label.AutoSize = true;
+            this.Test1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Test1Label.Location = new System.Drawing.Point(889, 166);
+            this.Test1Label.Name = "Test1Label";
+            this.Test1Label.Size = new System.Drawing.Size(73, 25);
+            this.Test1Label.TabIndex = 13;
+            this.Test1Label.Text = "Test 1:";
+            // 
             // Chessboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 593);
+            this.ClientSize = new System.Drawing.Size(1243, 593);
+            this.Controls.Add(this.Test4PF);
+            this.Controls.Add(this.Test3PF);
+            this.Controls.Add(this.Test2PF);
+            this.Controls.Add(this.Test1PF);
+            this.Controls.Add(this.Test4Label);
+            this.Controls.Add(this.Test3Label);
+            this.Controls.Add(this.Test2Label);
+            this.Controls.Add(this.Test1Label);
             this.Controls.Add(this.Player1);
             this.Controls.Add(this.Player2);
             this.Controls.Add(this.listBox1);
@@ -154,5 +254,13 @@
         private System.Windows.Forms.Timer MainTimer;
         private System.Windows.Forms.TextBox Player2;
         private System.Windows.Forms.TextBox Player1;
+        public System.Windows.Forms.Label Test4PF;
+        public System.Windows.Forms.Label Test3PF;
+        public System.Windows.Forms.Label Test2PF;
+        public System.Windows.Forms.Label Test1PF;
+        private System.Windows.Forms.Label Test4Label;
+        private System.Windows.Forms.Label Test3Label;
+        private System.Windows.Forms.Label Test2Label;
+        private System.Windows.Forms.Label Test1Label;
     }
 }

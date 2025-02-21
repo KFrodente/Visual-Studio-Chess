@@ -67,6 +67,13 @@
       <DependentUpon>PromotionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnitTestForm.Designer.cs">
+      <DependentUpon>UnitTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitTests.cs" />
     <EmbeddedResource Include="Chessboard.resx">
       <DependentUpon>Chessboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,6 +92,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UnitTestForm.resx">
+      <DependentUpon>UnitTestForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\DataSources\MoveString.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
