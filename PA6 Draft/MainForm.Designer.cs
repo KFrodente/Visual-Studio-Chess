@@ -45,6 +45,7 @@ namespace PA6_Draft
             this.lightColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Minute)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Seconds)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -52,11 +53,11 @@ namespace PA6_Draft
             // 
             // newGame
             // 
-            this.newGame.Location = new System.Drawing.Point(130, 181);
+            this.newGame.Location = new System.Drawing.Point(37, 180);
             this.newGame.Name = "newGame";
-            this.newGame.Size = new System.Drawing.Size(75, 23);
+            this.newGame.Size = new System.Drawing.Size(100, 23);
             this.newGame.TabIndex = 0;
-            this.newGame.Text = "New Game";
+            this.newGame.Text = "Standard Rules";
             this.newGame.UseVisualStyleBackColor = true;
             this.newGame.Click += new System.EventHandler(this.NewGame_Click);
             // 
@@ -122,6 +123,7 @@ namespace PA6_Draft
             this.Seconds.Name = "Seconds";
             this.Seconds.Size = new System.Drawing.Size(40, 20);
             this.Seconds.TabIndex = 8;
+            this.Seconds.ValueChanged += new System.EventHandler(this.Seconds_ValueChanged);
             // 
             // label4
             // 
@@ -166,11 +168,22 @@ namespace PA6_Draft
             this.darkColorToolStripMenuItem.Text = "Dark Color";
             this.darkColorToolStripMenuItem.Click += new System.EventHandler(this.DarkColor_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(180, 180);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "960 Rules";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(336, 249);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Seconds);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Minute);
@@ -185,6 +198,7 @@ namespace PA6_Draft
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Chess";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Minute)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Seconds)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -212,6 +226,7 @@ namespace PA6_Draft
         private System.Windows.Forms.ColorDialog colorDialog1;
         private Color LightColor;
         private Color DarkColor;
+        private System.Windows.Forms.Button button1;
     }
 }
 

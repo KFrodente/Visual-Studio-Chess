@@ -32,7 +32,7 @@ namespace PA6_Draft
         private void NewGame_Click(object sender, EventArgs e)
         {
             new Chessboard(LightColor,DarkColor, 
-                new ChessGame((int)Minute.Value, (int)Seconds.Value, player1.Text, player2.Text)).ShowDialog();
+                new ChessGame((int)Minute.Value, (int)Seconds.Value, player1.Text, player2.Text, Rules.STANDARD)).ShowDialog();
         }
 
         private void DarkColor_Click(object sender, EventArgs e)
@@ -47,6 +47,22 @@ namespace PA6_Draft
             DialogResult d = colorDialog1.ShowDialog();
             if (d == DialogResult.OK)
                 LightColor = colorDialog1.Color;
+        }
+
+        private void Seconds_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new Chessboard(LightColor, DarkColor,
+                new ChessGame((int)Minute.Value, (int)Seconds.Value, player1.Text, player2.Text, Rules.NINESIXTY)).ShowDialog();
         }
     }
 }

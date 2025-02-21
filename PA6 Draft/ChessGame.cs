@@ -45,6 +45,13 @@ namespace PA6_Draft
         WQUEEN,
         NONE
     }
+
+    enum Rules
+    {
+        STANDARD,
+        NINESIXTY
+    }
+
     class Move
     {
         internal int X1;
@@ -214,7 +221,7 @@ namespace PA6_Draft
             result += centisecString;
             return result;
         }
-        public ChessGame(int timeLimit,int increment,string player1,string player2)
+        public ChessGame(int timeLimit,int increment,string player1,string player2, Rules rules)
         {
             WLimit = BLimit= timeLimit * 60000;
             Increment = increment * 1000;
@@ -223,33 +230,90 @@ namespace PA6_Draft
             WhiteTimeLimit = TimeToString(WLimit);
             BlackTimeLimit = TimeToString(BLimit);
             Board = new Square[8][];
+
+            if (rules == Rules.STANDARD)
+            {
+                Board = BasicPawnSetup(Board);
+
+                Board[0][0].Occupant = Board[7][0].Occupant = Piece.BROOK;
+                Board[0][7].Occupant = Board[7][7].Occupant = Piece.WROOK;
+                Board[1][0].Occupant = Board[6][0].Occupant = Piece.BKNIGHT;
+                Board[1][7].Occupant = Board[6][7].Occupant = Piece.WKNIGHT;
+                Board[2][0].Occupant = Board[5][0].Occupant = Piece.BBISHOP;
+                Board[2][7].Occupant = Board[5][7].Occupant = Piece.WBISHOP;
+                Board[3][0].Occupant = Piece.BQUEEN;
+                Board[4][0].Occupant = Piece.BKING;
+                Board[3][7].Occupant = Piece.WQUEEN;
+                Board[4][7].Occupant = Piece.WKING;
+            }
+            else if (rules == Rules.NINESIXTY)
+            {
+                //Variable setup
+                Random rand = new Random();
+                Board = BasicPawnSetup(Board);
+                List<int> remainingSlots = new List<int>();
+                List<Piece> remainingPieces = new List<Piece> { Piece.BKNIGHT, Piece.BKNIGHT, Piece.BQUEEN };
+
+                for (int i = 0; i < 8; i++)
+                {
+                    remainingSlots.Add(i);
+                }
+
+                int whiteSlot = rand.Next(0, 4) * 2;
+                int blackSlot = (rand.Next(0, 4) * 2) + 1;
+
+                Board[whiteSlot][0].Occupant = Piece.BBISHOP;
+                Board[blackSlot][0].Occupant = Piece.BBISHOP;
+                
+                remainingSlots.RemoveAt(remainingSlots.IndexOf(whiteSlot));
+                int indexToRemove = remainingSlots.IndexOf(blackSlot);
+                remainingSlots.RemoveAt(indexToRemove);
+
+                for (int i = 0; i < remainingPieces.Count; i++)
+                {
+                    int index = rand.Next(0, remainingSlots.Count);
+
+                    Board[remainingSlots[index]][0].Occupant = remainingPieces[i];
+
+                    remainingSlots.RemoveAt(index);
+                }
+
+
+                Board[remainingSlots[0]][0].Occupant = Piece.BROOK;
+                Board[remainingSlots[1]][0].Occupant = Piece.BKING;
+                Board[remainingSlots[2]][0].Occupant = Piece.BROOK;
+
+                for (int i = 0; i < 8; i++)
+                {
+                    Piece piece = Board[i][0].Occupant + 1;
+                    Board[i][7].Occupant = piece;
+                }
+
+            }
+            Moves = new List<Move>();
+            SoundPlayer soundPlayer = new SoundPlayer(@"Resources\startgame.wav");
+            soundPlayer.Load();
+            soundPlayer.Play();
+        }
+
+        private Square[][] BasicPawnSetup(Square[][] board)
+        {
             for (int i = 0; i < 8; i++)
                 Board[i] = new Square[8];
-            for(int i = 0; i < 8;i++)
-                for(int j = 0;j < 8;j++)
+            for (int i = 0; i < 8; i++)
+                for (int j = 0; j < 8; j++)
                 {
-                    Board[i][j] = new Square(8-j, (char)('a' + i));
+                    Board[i][j] = new Square(8 - j, (char)('a' + i));
                 }
             for (int i = 0; i < 8; i++)
             {
                 Board[i][1].Occupant = Piece.BPAWN;
                 Board[i][6].Occupant = Piece.WPAWN;
             }
-            Board[0][0].Occupant = Board[7][0].Occupant = Piece.BROOK;
-            Board[0][7].Occupant = Board[7][7].Occupant = Piece.WROOK;
-            Board[1][0].Occupant = Board[6][0].Occupant = Piece.BKNIGHT;
-            Board[1][7].Occupant = Board[6][7].Occupant = Piece.WKNIGHT;
-            Board[2][0].Occupant = Board[5][0].Occupant = Piece.BBISHOP;
-            Board[2][7].Occupant = Board[5][7].Occupant = Piece.WBISHOP;
-            Board[3][0].Occupant = Piece.BQUEEN;
-            Board[4][0].Occupant = Piece.BKING;
-            Board[3][7].Occupant = Piece.WQUEEN;
-            Board[4][7].Occupant = Piece.WKING;
-            Moves = new List<Move>();
-            SoundPlayer soundPlayer = new SoundPlayer(@"Resources\startgame.wav");
-            soundPlayer.Load();
-            soundPlayer.Play();
+            return board;
         }
+
+
         private bool IsCheckmate(bool whiteKing)
         {
             if (!IsCheck(whiteKing))
